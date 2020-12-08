@@ -1,13 +1,13 @@
-FROM ruby:2.6
+FROM ruby:2.5
 ENV LANG C.UTF-8
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs vim
 
-RUN mkdir /app
-WORKDIR /app
+RUN mkdir /myapp
+WORKDIR /myapp
 
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+COPY Gemfile /myapp/Gemfile
+COPY Gemfile.lock /myapp/Gemfile.lock
 
 RUN bundle install
-COPY . /app
+COPY . /myapp
